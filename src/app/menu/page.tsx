@@ -6,11 +6,11 @@ import Image from "next/image";
 import { categories, MenuItem } from "@/data/menu";
 import Nav from "@/components/Nav";
 
-function DoodleCoffeeBean({ className = "", delay = 0 }: { className?: string; delay?: number }) {
+function DoodleCoffeeBean({ className = "", delay = 0, style }: { className?: string; delay?: number; style?: React.CSSProperties }) {
   return (
     <svg
       className={`doodle-bean ${className}`}
-      style={{ animationDelay: `${delay}s` }}
+      style={{ ...style, animationDelay: `${delay}s` }}
       width="40"
       height="40"
       viewBox="0 0 40 40"

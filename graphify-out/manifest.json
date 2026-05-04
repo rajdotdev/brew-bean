@@ -1,0 +1,62 @@
+{
+  "/Users/durgarijal/Desktop/brew-bean/postcss.config.mjs": {
+    "mtime": 1777894774.219871,
+    "hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/next-env.d.ts": {
+    "mtime": 1777897991.953286,
+    "hash": "2a74d3909800ca5467fa83b0ab4a4890"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/eslint.config.mjs": {
+    "mtime": 1777894774.2183022,
+    "hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/next.config.ts": {
+    "mtime": 1777895362.9922137,
+    "hash": "a1795954f684176f6dad3e5d01395b9b"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/src/app/layout.tsx": {
+    "mtime": 1777896059.6810904,
+    "hash": "2d5878e8e10675fe83e3f2834b5008d3"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/src/app/page.tsx": {
+    "mtime": 1777899179.7907522,
+    "hash": "2f9764d05c8e3acdf6ed346eb3140c2f"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/README.md": {
+    "mtime": 1777894774.2184722,
+    "hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/AGENTS.md": {
+    "mtime": 1777894865.7247229,
+    "hash": "9e09241799026ac05be315a2f0b50055"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/CLAUDE.md": {
+    "mtime": 1777894865.7252927,
+    "hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/public/models/README.md": {
+    "mtime": 1777896072.464945,
+    "hash": "dc8b9ce0160e2ab9170c1254d333ced0"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/public/file.svg": {
+    "mtime": 1777894774.2212543,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/public/vercel.svg": {
+    "mtime": 1777894774.2220743,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/public/next.svg": {
+    "mtime": 1777894774.2216837,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/public/globe.svg": {
+    "mtime": 1777894774.2218857,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "/Users/durgarijal/Desktop/brew-bean/public/window.svg": {
+    "mtime": 1777894774.2218843,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  }
+}

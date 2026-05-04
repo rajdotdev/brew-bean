@@ -1,0 +1,775 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "page_components",
+        "label": "Page Component Tree",
+        "nodes": [
+          "page_home",
+          "page_nav",
+          "page_hero",
+          "page_marquee",
+          "page_menusection",
+          "page_storysection",
+          "page_visitsection",
+          "page_ctasection",
+          "page_footer"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "src/app/page.tsx"
+      },
+      {
+        "id": "ar_features",
+        "label": "AR Feature Set",
+        "nodes": [
+          "page_armodal",
+          "page_menuitem",
+          "ar_integration_rationale",
+          "models_readme"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.85,
+        "source_file": "src/app/page.tsx"
+      },
+      {
+        "id": "documentation_set",
+        "label": "Project Documentation",
+        "nodes": [
+          "readme",
+          "agents_md",
+          "claude_md",
+          "models_readme"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "README.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": "postcss.config.mjs",
+      "file_type": "code",
+      "source_file": "postcss.config.mjs",
+      "source_location": "L1",
+      "id": "postcss_config_mjs",
+      "community": 5,
+      "norm_label": "postcss.config.mjs"
+    },
+    {
+      "label": "next-env.d.ts",
+      "file_type": "code",
+      "source_file": "next-env.d.ts",
+      "source_location": "L1",
+      "id": "next_env_d_ts",
+      "community": 6,
+      "norm_label": "next-env.d.ts"
+    },
+    {
+      "label": "eslint.config.mjs",
+      "file_type": "code",
+      "source_file": "eslint.config.mjs",
+      "source_location": "L1",
+      "id": "eslint_config_mjs",
+      "community": 7,
+      "norm_label": "eslint.config.mjs"
+    },
+    {
+      "label": "next.config.ts",
+      "file_type": "code",
+      "source_file": "next.config.ts",
+      "source_location": "L1",
+      "id": "next_config_ts",
+      "community": 8,
+      "norm_label": "next.config.ts"
+    },
+    {
+      "label": "layout.tsx",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L1",
+      "id": "src_app_layout_tsx",
+      "community": 9,
+      "norm_label": "layout.tsx"
+    },
+    {
+      "label": "page.tsx",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L1",
+      "id": "src_app_page_tsx",
+      "community": 0,
+      "norm_label": "page.tsx"
+    },
+    {
+      "label": "Nav()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L62",
+      "id": "app_page_nav",
+      "community": 0,
+      "norm_label": "nav()"
+    },
+    {
+      "label": "Hero()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L135",
+      "id": "app_page_hero",
+      "community": 0,
+      "norm_label": "hero()"
+    },
+    {
+      "label": "Marquee()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L199",
+      "id": "app_page_marquee",
+      "community": 0,
+      "norm_label": "marquee()"
+    },
+    {
+      "label": "handleEscape()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L241",
+      "id": "app_page_handleescape",
+      "community": 0,
+      "norm_label": "handleescape()"
+    },
+    {
+      "label": "handleBackdropClick()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L253",
+      "id": "app_page_handlebackdropclick",
+      "community": 0,
+      "norm_label": "handlebackdropclick()"
+    },
+    {
+      "label": "handleARClick()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L257",
+      "id": "app_page_handlearclick",
+      "community": 0,
+      "norm_label": "handlearclick()"
+    },
+    {
+      "label": "CTASection()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L578",
+      "id": "app_page_ctasection",
+      "community": 0,
+      "norm_label": "ctasection()"
+    },
+    {
+      "label": "Footer()",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L605",
+      "id": "app_page_footer",
+      "community": 0,
+      "norm_label": "footer()"
+    },
+    {
+      "label": "RootLayout",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": 24,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "layout_rootlayout",
+      "community": 4,
+      "norm_label": "rootlayout"
+    },
+    {
+      "label": "Page Metadata",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": 19,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "layout_metadata",
+      "community": 4,
+      "norm_label": "page metadata"
+    },
+    {
+      "label": "Home",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 629,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_home",
+      "community": 1,
+      "norm_label": "home"
+    },
+    {
+      "label": "Nav Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 62,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_nav",
+      "community": 1,
+      "norm_label": "nav component"
+    },
+    {
+      "label": "Hero Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 135,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_hero",
+      "community": 1,
+      "norm_label": "hero component"
+    },
+    {
+      "label": "Marquee Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 199,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_marquee",
+      "community": 1,
+      "norm_label": "marquee component"
+    },
+    {
+      "label": "ARModal Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 231,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_armodal",
+      "community": 2,
+      "norm_label": "armodal component"
+    },
+    {
+      "label": "MenuCard Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 366,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_menucard",
+      "community": 2,
+      "norm_label": "menucard component"
+    },
+    {
+      "label": "MenuSection Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 406,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_menusection",
+      "community": 2,
+      "norm_label": "menusection component"
+    },
+    {
+      "label": "StorySection Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 471,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_storysection",
+      "community": 1,
+      "norm_label": "storysection component"
+    },
+    {
+      "label": "VisitSection Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 529,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_visitsection",
+      "community": 1,
+      "norm_label": "visitsection component"
+    },
+    {
+      "label": "CTASection Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 578,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_ctasection",
+      "community": 1,
+      "norm_label": "ctasection component"
+    },
+    {
+      "label": "Footer Component",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 605,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_footer",
+      "community": 1,
+      "norm_label": "footer component"
+    },
+    {
+      "label": "MenuItem Interface",
+      "file_type": "code",
+      "source_file": "src/app/page.tsx",
+      "source_location": 28,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "page_menuitem",
+      "community": 2,
+      "norm_label": "menuitem interface"
+    },
+    {
+      "label": "Next.js README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme",
+      "community": 3,
+      "norm_label": "next.js readme"
+    },
+    {
+      "label": "Next.js Agent Rules",
+      "file_type": "document",
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "agents_md",
+      "community": 3,
+      "norm_label": "next.js agent rules"
+    },
+    {
+      "label": "CLAUDE Configuration",
+      "file_type": "document",
+      "source_file": "CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "claude_md",
+      "community": 3,
+      "norm_label": "claude configuration"
+    },
+    {
+      "label": "AR Models Documentation",
+      "file_type": "document",
+      "source_file": "public/models/README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "models_readme",
+      "community": 2,
+      "norm_label": "ar models documentation"
+    },
+    {
+      "label": "Next.js Agent Rules Rationale",
+      "file_type": "rationale",
+      "source_file": "AGENTS.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nextjs_agent_rules_rationale",
+      "community": 3,
+      "norm_label": "next.js agent rules rationale"
+    },
+    {
+      "label": "AR Integration Design Rationale",
+      "file_type": "rationale",
+      "source_file": "src/app/page.tsx",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "ar_integration_rationale",
+      "community": 2,
+      "norm_label": "ar integration design rationale"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L62",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_nav",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_hero",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L199",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_marquee",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L241",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_handleescape",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L253",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_handlebackdropclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L257",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_handlearclick",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L578",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_ctasection",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L605",
+      "weight": 1.0,
+      "source": "src_app_page_tsx",
+      "target": "app_page_footer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/layout.tsx",
+      "source_location": 19,
+      "weight": 1.0,
+      "source": "layout_rootlayout",
+      "target": "layout_metadata"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 649,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_nav"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 651,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_hero"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 652,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_marquee"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 653,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_menusection"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 654,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_storysection"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 655,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_visitsection"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 656,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_ctasection"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 658,
+      "weight": 1.0,
+      "source": "page_home",
+      "target": "page_footer"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 464,
+      "weight": 1.0,
+      "source": "page_menusection",
+      "target": "page_armodal"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "src/app/page.tsx",
+      "source_location": 32,
+      "weight": 1.0,
+      "source": "page_menuitem",
+      "target": "page_armodal"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/app/page.tsx",
+      "source_location": 231,
+      "weight": 1.0,
+      "source": "page_armodal",
+      "target": "ar_integration_rationale"
+    },
+    {
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": "422-458",
+      "weight": 1.0,
+      "source": "page_menusection",
+      "target": "page_menucard"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": 366,
+      "weight": 1.0,
+      "source": "page_menucard",
+      "target": "page_menuitem"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/app/page.tsx",
+      "source_location": 32,
+      "weight": 1.0,
+      "source": "page_menuitem",
+      "target": "ar_integration_rationale"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/app/page.tsx",
+      "source_location": 32,
+      "weight": 1.0,
+      "source": "page_menuitem",
+      "target": "models_readme"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "readme",
+      "target": "nextjs_agent_rules_rationale"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "AGENTS.md",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "agents_md",
+      "target": "nextjs_agent_rules_rationale"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLAUDE.md",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "claude_md",
+      "target": "agents_md"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "public/models/README.md",
+      "source_location": 1,
+      "weight": 1.0,
+      "source": "models_readme",
+      "target": "ar_integration_rationale"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "page_components",
+      "label": "Page Component Tree",
+      "nodes": [
+        "page_home",
+        "page_nav",
+        "page_hero",
+        "page_marquee",
+        "page_menusection",
+        "page_storysection",
+        "page_visitsection",
+        "page_ctasection",
+        "page_footer"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx"
+    },
+    {
+      "id": "ar_features",
+      "label": "AR Feature Set",
+      "nodes": [
+        "page_armodal",
+        "page_menuitem",
+        "ar_integration_rationale",
+        "models_readme"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/app/page.tsx"
+    },
+    {
+      "id": "documentation_set",
+      "label": "Project Documentation",
+      "nodes": [
+        "readme",
+        "agents_md",
+        "claude_md",
+        "models_readme"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "README.md"
+    }
+  ],
+  "built_at_commit": "72a3f220ab5779141f6be51c3a5cd881fcc8bc6c"
+}
