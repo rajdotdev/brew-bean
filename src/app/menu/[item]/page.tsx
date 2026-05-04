@@ -67,7 +67,7 @@ export default function ItemDetailPage({ params }: PageProps) {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 py-6">
           <Link
             href="/menu"
-            className="inline-flex items-center gap-2 text-[#3b2a20]/60 hover:text-[#b08456] transition-colors"
+            className="inline-flex items-center gap-2 text-coffee/60 hover:text-caramel transition-colors"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -100,7 +100,7 @@ export default function ItemDetailPage({ params }: PageProps) {
                       <div className="absolute inset-0 flex items-center justify-center bg-[#faf6f0]">
                         <div className="flex flex-col items-center gap-4">
                           <div className="w-16 h-16 border-4 border-[#b08456]/30 border-t-[#b08456] rounded-full animate-spin" />
-                          <p className="text-[#3b2a20]/50 text-sm">Loading 3D Model...</p>
+                          <p className="text-coffee/50 text-sm">Loading 3D Model...</p>
                         </div>
                       </div>
                     )}
@@ -112,7 +112,7 @@ export default function ItemDetailPage({ params }: PageProps) {
                         <path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8zM6 1v3M10 1v3M14 1v3" />
                       </svg>
                     </div>
-                    <p className="text-[#3b2a20]/40 text-center px-8">
+                    <p className="text-coffee/40 text-center px-8">
                       This item is coming soon in 3D
                     </p>
                   </div>
@@ -135,20 +135,20 @@ export default function ItemDetailPage({ params }: PageProps) {
             {/* Item Info */}
             <div className="reveal">
               <div className="mb-2">
-                <span className="text-sm tracking-[0.2em] uppercase text-[#b08456]">
+                <span className="text-sm tracking-[0.2em] uppercase text-caramel">
                   {item.categoryLabel}
                 </span>
               </div>
 
-              <h1 className="serif text-4xl md:text-5xl lg:text-6xl text-[#3b2a20] mb-6">
+              <h1 className="serif text-4xl md:text-5xl lg:text-6xl text-coffee mb-6">
                 {item.name}
               </h1>
 
-              <p className="text-lg text-[#3b2a20]/70 leading-relaxed mb-8">
+              <p className="text-lg text-coffee/70 leading-relaxed mb-8">
                 {item.desc}
               </p>
 
-              <div className="text-4xl serif text-[#b08456] mb-8">
+              <div className="text-4xl serif text-caramel mb-8">
                 {item.price}
               </div>
 
@@ -176,21 +176,21 @@ export default function ItemDetailPage({ params }: PageProps) {
                     </button>
                   )
                 ) : (
-                  <div className="w-full bg-[#3b2a20]/10 text-[#3b2a20]/40 py-5 rounded-2xl text-center font-medium text-lg cursor-not-allowed">
+                  <div className="w-full bg-[#3b2a20]/10 text-coffee/40 py-5 rounded-2xl text-center font-medium text-lg cursor-not-allowed">
                     3D Model Coming Soon
                   </div>
                 )}
 
                 {/* Instructions */}
                 <div className="bg-[#faf6f0] rounded-2xl p-6 border border-[#3b2a20]/5">
-                  <h3 className="font-medium text-[#3b2a20] mb-3 flex items-center gap-2">
+                  <h3 className="font-medium text-coffee mb-3 flex items-center gap-2">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#b08456" strokeWidth="2">
                       <circle cx="12" cy="12" r="10" />
                       <path d="M12 16v-4M12 8h.01" />
                     </svg>
                     How AR Works
                   </h3>
-                  <p className="text-sm text-[#3b2a20]/60 leading-relaxed">
+                  <p className="text-sm text-coffee/60 leading-relaxed">
                     Tap the button above to open your camera. Point at a flat surface like a table or floor, then tap to place the item. You can walk around to view it from every angle.
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export default function ItemDetailPage({ params }: PageProps) {
 
               {/* Other Items */}
               <div className="mt-12 pt-8 border-t border-[#3b2a20]/10">
-                <h3 className="text-sm tracking-[0.2em] uppercase text-[#3b2a20]/50 mb-4">
+                <h3 className="text-sm tracking-[0.2em] uppercase text-coffee/50 mb-4">
                   More in {item.categoryLabel}
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -209,7 +209,7 @@ export default function ItemDetailPage({ params }: PageProps) {
                       <Link
                         key={otherItem.id}
                         href={`/menu/${otherItem.id}`}
-                        className="px-4 py-2 bg-[#faf6f0] rounded-full text-sm text-[#3b2a20]/70 hover:bg-[#b08456]/20 hover:text-[#b08456] transition-colors"
+                        className="px-4 py-2 bg-[#faf6f0] rounded-full text-sm text-coffee/70 hover:bg-[#b08456]/20 hover:text-caramel transition-colors"
                       >
                         {otherItem.name}
                       </Link>
@@ -225,13 +225,13 @@ export default function ItemDetailPage({ params }: PageProps) {
       <footer className="bg-[#1f1612] text-[#f6f1ea]/60 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="serif text-xl text-[#f6f1ea]">
-            Brew<span className="text-[#b08456]">&</span>Bean
+            Brew<span className="text-caramel">&</span>Bean
           </div>
           <p className="text-xs tracking-widest uppercase">2024 - Made with care in Brooklyn</p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-[#b08456] transition">Instagram</a>
-            <a href="#" className="hover:text-[#b08456] transition">Twitter</a>
-            <a href="#" className="hover:text-[#b08456] transition">Spotify</a>
+            <a href="#" className="hover:text-caramel transition">Instagram</a>
+            <a href="#" className="hover:text-caramel transition">Twitter</a>
+            <a href="#" className="hover:text-caramel transition">Spotify</a>
           </div>
         </div>
       </footer>

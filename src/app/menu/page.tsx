@@ -56,9 +56,9 @@ function MenuItemCard({ item }: { item: MenuItem }) {
       <div className="flex justify-between items-start gap-4">
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-3 flex-wrap">
-            <h4 className="font-medium text-lg text-[#3b2a20] truncate">{item.name}</h4>
+            <h4 className="font-medium text-lg text-coffee truncate">{item.name}</h4>
             {item.modelPath && (
-              <span className="inline-flex items-center text-xs bg-[#b08456]/10 text-[#b08456] px-3 py-1 rounded-full font-medium">
+              <span className="inline-flex items-center text-xs bg-[#b08456]/10 text-caramel px-3 py-1 rounded-full font-medium">
                 <svg className="w-3 h-3 mr-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
                   <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
@@ -68,11 +68,11 @@ function MenuItemCard({ item }: { item: MenuItem }) {
               </span>
             )}
           </div>
-          <p className="text-sm text-[#3b2a20]/60 mt-1 line-clamp-2">{item.desc}</p>
+          <p className="text-sm text-coffee/60 mt-1 line-clamp-2">{item.desc}</p>
         </div>
         <div className="flex items-center gap-3">
-          <span className="serif text-xl text-[#3b2a20]">{item.price}</span>
-          <span className="menu-arrow opacity-0 group-hover:opacity-100 transition-opacity text-[#b08456]">
+          <span className="serif text-xl text-coffee">{item.price}</span>
+          <span className="menu-arrow opacity-0 group-hover:opacity-100 transition-opacity text-caramel">
             <DoodleArrow />
           </span>
         </div>
@@ -86,7 +86,7 @@ function CategorySection({ category, index }: { category: typeof categories[0]; 
     <div className="category-section reveal">
       <div className="flex items-center gap-4 mb-8">
         <DoodleCoffeeBean className="hidden sm:block" delay={index * 0.2} />
-        <h3 className="serif text-3xl md:text-4xl text-[#b08456]">{category.label}</h3>
+        <h3 className="serif text-3xl md:text-4xl text-caramel">{category.label}</h3>
         <div className="flex-1 hidden sm:block">
           <DoodleWave />
         </div>
@@ -125,11 +125,11 @@ export default function MenuPage() {
 
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
             <div className="text-center mb-12 reveal">
-              <p className="text-sm tracking-[0.3em] uppercase text-[#b08456] mb-4">The Menu</p>
-              <h1 className="serif text-5xl md:text-6xl lg:text-7xl text-[#3b2a20] mb-6">
+              <p className="text-sm tracking-[0.3em] uppercase text-caramel mb-4">The Menu</p>
+              <h1 className="serif text-5xl md:text-6xl lg:text-7xl text-coffee mb-6">
                 Crafted with care.
               </h1>
-              <p className="text-[#3b2a20]/60 max-w-md mx-auto">
+              <p className="text-coffee/70 max-w-md mx-auto">
                 Tap any item to explore in 3D. Some drinks can be viewed in augmented reality.
               </p>
             </div>
@@ -141,7 +141,7 @@ export default function MenuPage() {
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                   activeCategory === null
                     ? 'bg-[#3b2a20] text-white'
-                    : 'bg-[#faf6f0] text-[#3b2a20] hover:bg-[#b08456]/20'
+                    : 'bg-[#faf6f0] text-coffee hover:bg-[#b08456]/20'
                 }`}
               >
                 All
@@ -153,7 +153,7 @@ export default function MenuPage() {
                   className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
                     activeCategory === cat.id
                       ? 'bg-[#3b2a20] text-white'
-                      : 'bg-[#faf6f0] text-[#3b2a20] hover:bg-[#b08456]/20'
+                      : 'bg-[#faf6f0] text-coffee hover:bg-[#b08456]/20'
                   }`}
                 >
                   {cat.label}
@@ -181,13 +181,13 @@ export default function MenuPage() {
       <footer className="bg-[#1f1612] text-[#f6f1ea]/60 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="serif text-xl text-[#f6f1ea]">
-            Brew<span className="text-[#b08456]">&</span>Bean
+            Brew<span className="text-caramel">&</span>Bean
           </div>
           <p className="text-xs tracking-widest uppercase">2024 - Made with care in Brooklyn</p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-[#b08456] transition">Instagram</a>
-            <a href="#" className="hover:text-[#b08456] transition">Twitter</a>
-            <a href="#" className="hover:text-[#b08456] transition">Spotify</a>
+            <a href="#" className="hover:text-caramel transition">Instagram</a>
+            <a href="#" className="hover:text-caramel transition">Twitter</a>
+            <a href="#" className="hover:text-caramel transition">Spotify</a>
           </div>
         </div>
       </footer>

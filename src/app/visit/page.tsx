@@ -51,8 +51,8 @@ export default function VisitPage() {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
             <div className="text-center mb-16 reveal">
-              <p className="text-sm tracking-[0.3em] uppercase text-[#b08456] mb-4">Visit Us</p>
-              <h1 className="serif text-5xl md:text-6xl lg:text-7xl text-[#3b2a20] mb-6">
+              <p className="text-sm tracking-[0.3em] uppercase text-caramel mb-4">Visit Us</p>
+              <h1 className="serif text-5xl md:text-6xl lg:text-7xl text-coffee mb-6">
                 Come find your seat.
               </h1>
               <div className="max-w-md mx-auto">
@@ -66,11 +66,11 @@ export default function VisitPage() {
                 <div className="mb-6">
                   <DoodlePin />
                 </div>
-                <h3 className="serif text-2xl text-[#3b2a20] mb-4">Location</h3>
-                <div className="text-[#3b2a20]/70 leading-relaxed space-y-1">
+                <h3 className="serif text-2xl text-coffee mb-4">Location</h3>
+                <div className="text-coffee/70 leading-relaxed space-y-1">
                   <p>142 Maple Street</p>
                   <p>Brooklyn, NY 11201</p>
-                  <p className="text-[#b08456] mt-3 text-sm">Corner of Maple and 5th</p>
+                  <p className="text-caramel mt-3 text-sm">Corner of Maple and 5th</p>
                 </div>
               </div>
 
@@ -78,8 +78,8 @@ export default function VisitPage() {
                 <div className="mb-6">
                   <DoodleClock />
                 </div>
-                <h3 className="serif text-2xl text-[#3b2a20] mb-4">Hours</h3>
-                <div className="text-[#3b2a20]/70 leading-relaxed space-y-2">
+                <h3 className="serif text-2xl text-coffee mb-4">Hours</h3>
+                <div className="text-coffee/70 leading-relaxed space-y-2">
                   <div className="flex justify-between">
                     <span>Mon - Fri</span>
                     <span className="font-medium">7am - 7pm</span>
@@ -99,15 +99,15 @@ export default function VisitPage() {
                 <div className="mb-6">
                   <DoodleEnvelope />
                 </div>
-                <h3 className="serif text-2xl text-[#3b2a20] mb-4">Contact</h3>
-                <div className="text-[#3b2a20]/70 leading-relaxed space-y-2">
-                  <a href="mailto:hello@brewandbean.co" className="block hover:text-[#b08456] transition">
+                <h3 className="serif text-2xl text-coffee mb-4">Contact</h3>
+                <div className="text-coffee/70 leading-relaxed space-y-2">
+                  <a href="mailto:hello@brewandbean.co" className="block hover:text-caramel transition">
                     hello@brewandbean.co
                   </a>
-                  <a href="tel:+15551234567" className="block hover:text-[#b08456] transition">
+                  <a href="tel:+15551234567" className="block hover:text-caramel transition">
                     (555) 123-4567
                   </a>
-                  <p className="pt-2 text-sm text-[#b08456]">@brewandbean</p>
+                  <p className="pt-2 text-sm text-caramel">@brewandbean</p>
                 </div>
               </div>
             </div>
@@ -120,7 +120,7 @@ export default function VisitPage() {
               >
                 Reserve a Table
               </a>
-              <p className="text-[#3b2a20]/50 mt-4 text-sm">
+              <p className="text-coffee/50 mt-4 text-sm">
                 Or just walk in - well save you the seat by the window.
               </p>
             </div>
@@ -132,13 +132,13 @@ export default function VisitPage() {
       <footer className="bg-[#1f1612] text-[#f6f1ea]/60 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="serif text-xl text-[#f6f1ea]">
-            Brew<span className="text-[#b08456]">&</span>Bean
+            Brew<span className="text-caramel">&</span>Bean
           </div>
           <p className="text-xs tracking-widest uppercase">2024 - Made with care in Brooklyn</p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-[#b08456] transition">Instagram</a>
-            <a href="#" className="hover:text-[#b08456] transition">Twitter</a>
-            <a href="#" className="hover:text-[#b08456] transition">Spotify</a>
+            <a href="#" className="hover:text-caramel transition">Instagram</a>
+            <a href="#" className="hover:text-caramel transition">Twitter</a>
+            <a href="#" className="hover:text-caramel transition">Spotify</a>
           </div>
         </div>
       </footer>

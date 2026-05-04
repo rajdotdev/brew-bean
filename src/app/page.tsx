@@ -10,15 +10,15 @@ function Hero() {
     <section className="relative min-h-screen flex items-center pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="reveal">
-          <p className="text-sm tracking-[0.3em] uppercase text-[#b08456] mb-6">
+          <p className="text-sm tracking-[0.3em] uppercase text-caramel mb-6">
             Est. 2014 - Slow-Brewed
           </p>
-          <h1 className="serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] font-medium mb-8 text-[#3b2a20]">
+          <h1 className="serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[0.95] font-medium mb-8 text-coffee">
             Where every<br />
-            <em className="text-[#b08456]">cup</em> tells<br />
+            <em className="text-caramel">cup</em> tells<br />
             a story.
           </h1>
-          <p className="text-lg text-[#3b2a20]/70 max-w-md mb-10 leading-relaxed">
+          <p className="text-lg text-coffee/70 max-w-md mb-10 leading-relaxed">
             Hand-roasted beans, quiet mornings, and conversations that last longer than the foam.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -52,7 +52,7 @@ function Hero() {
           </div>
           {/* Floating badge */}
           <div className="absolute -bottom-6 -left-6 md:-left-12 bg-[#faf6f0] rounded-full w-28 h-28 md:w-40 md:h-40 flex flex-col items-center justify-center shadow-xl border border-[#3b2a20]/10">
-            <span className="serif text-3xl md:text-4xl text-[#b08456]">10+</span>
+            <span className="serif text-3xl md:text-4xl text-caramel">10+</span>
             <span className="text-xs tracking-widest uppercase mt-1 text-center px-2">Years Brewing</span>
           </div>
         </div>
@@ -87,13 +87,13 @@ function Marquee() {
           {items.map((item, i) => (
             <span key={i} className="mx-4">
               {item}
-              <span className="mx-6 text-[#b08456]">*</span>
+              <span className="mx-6 text-caramel">*</span>
             </span>
           ))}
           {items.map((item, i) => (
             <span key={`dup-${i}`} className="mx-4">
               {item}
-              <span className="mx-6 text-[#b08456]">*</span>
+              <span className="mx-6 text-caramel">*</span>
             </span>
           ))}
         </div>
@@ -109,14 +109,14 @@ function CTASection() {
         <h2 className="serif text-4xl md:text-5xl lg:text-6xl leading-tight mb-8">
           Pull up a chair.
           <br />
-          Stay <em className="text-[#b08456]">a while.</em>
+          Stay <em className="text-caramel">a while.</em>
         </h2>
         <p className="text-[#f6f1ea]/70 max-w-xl mx-auto mb-10 leading-relaxed">
           Reserve a table for the weekend, or just walk in - well save you the seat by the window.
         </p>
         <Link
           href="/visit"
-          className="inline-block bg-[#f6f1ea] text-[#3b2a20] px-10 py-4 rounded-full text-sm tracking-wide hover:bg-[#b08456] hover:text-[#f6f1ea] transition-all duration-300 hover:-translate-y-1"
+          className="inline-block bg-[#f6f1ea] text-coffee px-10 py-4 rounded-full text-sm tracking-wide hover:bg-[#b08456] hover:text-[#f6f1ea] transition-all duration-300 hover:-translate-y-1"
         >
           Reserve a Table
         </Link>
@@ -130,17 +130,17 @@ function Footer() {
     <footer className="bg-[#1f1612] text-[#f6f1ea]/60 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="serif text-xl text-[#f6f1ea]">
-          Brew<span className="text-[#b08456]">&</span>Bean
+          Brew<span className="text-caramel">&</span>Bean
         </div>
         <p className="text-xs tracking-widest uppercase">2024 - Made with care in Brooklyn</p>
         <div className="flex gap-6 text-sm">
-          <a href="#" className="hover:text-[#b08456] transition">
+          <a href="#" className="hover:text-caramel transition">
             Instagram
           </a>
-          <a href="#" className="hover:text-[#b08456] transition">
+          <a href="#" className="hover:text-caramel transition">
             Twitter
           </a>
-          <a href="#" className="hover:text-[#b08456] transition">
+          <a href="#" className="hover:text-caramel transition">
             Spotify
           </a>
         </div>

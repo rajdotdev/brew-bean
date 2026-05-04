@@ -34,9 +34,9 @@ export default function StoryPage() {
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
             <div className="text-center mb-16 reveal">
-              <p className="text-sm tracking-[0.3em] uppercase text-[#b08456] mb-4">Our Story</p>
-              <h1 className="serif text-5xl md:text-6xl lg:text-7xl text-[#3b2a20] mb-8 leading-tight">
-                A small space with <em className="text-[#b08456]">big</em> heart.
+              <p className="text-sm tracking-[0.3em] uppercase text-caramel mb-4">Our Story</p>
+              <h1 className="serif text-5xl md:text-6xl lg:text-7xl text-coffee mb-8 leading-tight">
+                A small space with <em className="text-caramel">big</em> heart.
               </h1>
               <div className="max-w-2xl mx-auto">
                 <DoodleWave />
@@ -67,16 +67,16 @@ export default function StoryPage() {
               </div>
 
               <div className="reveal order-1 md:order-2 space-y-6">
-                <p className="text-lg text-[#3b2a20]/70 leading-relaxed">
+                <p className="text-lg text-coffee/70 leading-relaxed">
                   Brew & Bean started in 2014 as a tiny corner shop with three tables and a single
                   espresso machine. A decade later, were still small and still obsessed with the
                   details that make a perfect cup.
                 </p>
-                <p className="text-lg text-[#3b2a20]/70 leading-relaxed">
+                <p className="text-lg text-coffee/70 leading-relaxed">
                   We source our beans directly from farms in Ethiopia, Colombia, and Guatemala, roast in
                   small batches each week, and pull every shot like it matters because it does.
                 </p>
-                <p className="text-lg text-[#3b2a20]/70 leading-relaxed">
+                <p className="text-lg text-coffee/70 leading-relaxed">
                   Every morning at 5am, before the city wakes up, were already roasting, grinding,
                   and prepping. Not because we have to, but because we believe that the best
                   moments happen when someone sits down with a cup thats been made with intention.
@@ -85,15 +85,15 @@ export default function StoryPage() {
                 {/* Stats */}
                 <div className="grid grid-cols-3 gap-6 pt-8 border-t border-[#3b2a20]/10">
                   <div>
-                    <p className="serif text-4xl text-[#b08456]">12</p>
+                    <p className="serif text-4xl text-caramel">12</p>
                     <p className="text-xs uppercase tracking-widest mt-1">Origin Farms</p>
                   </div>
                   <div>
-                    <p className="serif text-4xl text-[#b08456]">5am</p>
+                    <p className="serif text-4xl text-caramel">5am</p>
                     <p className="text-xs uppercase tracking-widest mt-1">Daily Roast</p>
                   </div>
                   <div>
-                    <p className="serif text-4xl text-[#b08456]">Unlimited</p>
+                    <p className="serif text-4xl text-caramel">Unlimited</p>
                     <p className="text-xs uppercase tracking-widest mt-1">Refills</p>
                   </div>
                 </div>
@@ -107,13 +107,13 @@ export default function StoryPage() {
       <footer className="bg-[#1f1612] text-[#f6f1ea]/60 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="serif text-xl text-[#f6f1ea]">
-            Brew<span className="text-[#b08456]">&</span>Bean
+            Brew<span className="text-caramel">&</span>Bean
           </div>
           <p className="text-xs tracking-widest uppercase">2024 - Made with care in Brooklyn</p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-[#b08456] transition">Instagram</a>
-            <a href="#" className="hover:text-[#b08456] transition">Twitter</a>
-            <a href="#" className="hover:text-[#b08456] transition">Spotify</a>
+            <a href="#" className="hover:text-caramel transition">Instagram</a>
+            <a href="#" className="hover:text-caramel transition">Twitter</a>
+            <a href="#" className="hover:text-caramel transition">Spotify</a>
           </div>
         </div>
       </footer>
