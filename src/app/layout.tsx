@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
+import ModelViewerProvider from "@/components/ModelViewerProvider";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -29,13 +30,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <head>
-        <script
-          type="module"
-          src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"
-          async
+        <link
+          rel="stylesheet"
+          href="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.css"
         />
       </head>
-      <body className="overflow-x-hidden antialiased">{children}</body>
+      <body className="overflow-x-hidden antialiased">
+        <ModelViewerProvider>{children}</ModelViewerProvider>
+      </body>
     </html>
   );
 }

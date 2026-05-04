@@ -1,0 +1,16 @@
+/Users/durgarijal/Desktop/brew-bean/postcss.config.mjs
+/Users/durgarijal/Desktop/brew-bean/next-env.d.ts
+/Users/durgarijal/Desktop/brew-bean/eslint.config.mjs
+/Users/durgarijal/Desktop/brew-bean/next.config.ts
+/Users/durgarijal/Desktop/brew-bean/src/app/page.tsx
+/Users/durgarijal/Desktop/brew-bean/src/app/visit/page.tsx
+/Users/durgarijal/Desktop/brew-bean/src/app/menu/page.tsx
+/Users/durgarijal/Desktop/brew-bean/src/app/menu/[item]/page.tsx
+/Users/durgarijal/Desktop/brew-bean/src/app/story/page.tsx
+/Users/durgarijal/Desktop/brew-bean/src/components/Nav.tsx
+/Users/durgarijal/Desktop/brew-bean/src/data/menu.ts
+/Users/durgarijal/Desktop/brew-bean/public/file.svg
+/Users/durgarijal/Desktop/brew-bean/public/vercel.svg
+/Users/durgarijal/Desktop/brew-bean/public/next.svg
+/Users/durgarijal/Desktop/brew-bean/public/globe.svg
+/Users/durgarijal/Desktop/brew-bean/public/window.svg

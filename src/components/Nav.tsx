@@ -17,10 +17,10 @@ export default function Nav() {
   const isActive = (href: string) => pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-[#f6f1ea]/90 border-b border-[#3b2a20]/10">
+    <nav className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-[#f6f1ea]/95 border-b border-[#2d1f1a]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-4 flex items-center justify-between">
-        <Link href="/" className="serif text-xl sm:text-2xl font-semibold tracking-tight">
-          Brew<span className="text-[#b08456]">&</span>Bean
+        <Link href="/" className="serif text-xl sm:text-2xl font-semibold tracking-tight text-[#2d1f1a]">
+          Brew<span className="text-[#a67040]">&</span>Bean
         </Link>
 
         {/* Desktop Navigation */}
@@ -29,9 +29,12 @@ export default function Nav() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`nav-link ${isActive(link.href) ? 'text-[#b08456]' : ''}`}
+                className={`relative transition-colors ${
+                  isActive(link.href) ? 'text-[#a67040]' : 'text-[#2d1f1a] hover:text-[#a67040]'
+                }`}
               >
                 {link.label}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#a67040] transition-all ${isActive(link.href) ? 'w-full' : 'w-0'}`} />
               </Link>
             </li>
           ))}
@@ -39,7 +42,7 @@ export default function Nav() {
 
         <Link
           href="/visit"
-          className="hidden md:inline-block btn-primary px-5 py-2.5 rounded-full text-sm whitespace-nowrap"
+          className="hidden md:inline-block bg-[#2d1f1a] text-[#f6f1ea] px-5 py-2.5 rounded-full text-sm whitespace-nowrap hover:bg-[#a67040] transition-colors"
         >
           Reserve a Table
         </Link>
@@ -47,7 +50,7 @@ export default function Nav() {
         {/* Mobile Menu Button */}
         <button
           id="menuBtn"
-          className="md:hidden text-[#3b2a20] p-2"
+          className="md:hidden text-[#2d1f1a] p-2"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
@@ -64,14 +67,14 @@ export default function Nav() {
       {/* Mobile Menu */}
       <div
         id="mobileMenu"
-        className={`${isOpen ? "block" : "hidden"} md:hidden border-t border-[#3b2a20]/10 px-4 py-4 bg-[#f6f1ea]`}
+        className={`${isOpen ? "block" : "hidden"} md:hidden border-t border-[#2d1f1a]/10 px-4 py-4 bg-[#f6f1ea]`}
       >
         <ul className="flex flex-col gap-4 text-base font-medium">
           {navLinks.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`block py-2 ${isActive(link.href) ? 'text-[#b08456]' : ''}`}
+                className={`block py-2 ${isActive(link.href) ? 'text-[#a67040]' : 'text-[#2d1f1a]'}`}
                 onClick={() => setIsOpen(false)}
               >
                 {link.label}
@@ -81,7 +84,7 @@ export default function Nav() {
           <li className="pt-2">
             <Link
               href="/visit"
-              className="btn-primary inline-block px-6 py-3 rounded-full text-sm"
+              className="inline-block bg-[#2d1f1a] text-[#f6f1ea] px-6 py-3 rounded-full text-sm"
               onClick={() => setIsOpen(false)}
             >
               Reserve a Table

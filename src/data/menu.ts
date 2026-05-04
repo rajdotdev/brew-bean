@@ -25,7 +25,7 @@ export const menuItems: MenuItem[] = [
   { id: 'affogato', name: "Affogato", desc: "Vanilla bean ice cream + espresso", price: "$6.25", modelPath: "affogato.glb", category: "cold", categoryLabel: "Cold Drinks" },
 
   // Bakery
-  { id: 'cupcake', name: "Cupcake", desc: "Extra chocolate marshmallow cupcake", price: "$4.50", modelPath: "extra_chocolate_marshmallow_cupcake.glb", category: "bakery", categoryLabel: "From the Bakery" },
+  { id: 'cupcake', name: "Cupcake", desc: "Extra chocolate marshmallow cupcake", price: "$4.50", modelPath: "extra_chocolate_marshmallow_cupcake-small.glb", category: "bakery", categoryLabel: "From the Bakery" },
   { id: 'butter-croissant', name: "Butter Croissant", desc: "Baked fresh at 5am", price: "$4.00", category: "bakery", categoryLabel: "From the Bakery" },
   { id: 'almond-pain-au-chocolat', name: "Almond Pain au Chocolat", desc: "Toasted almonds, dark chocolate", price: "$4.75", category: "bakery", categoryLabel: "From the Bakery" },
   { id: 'banana-walnut-loaf', name: "Banana Walnut Loaf", desc: "Warm, with cinnamon butter", price: "$5.00", category: "bakery", categoryLabel: "From the Bakery" },

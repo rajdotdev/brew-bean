@@ -243,6 +243,16 @@ body {
   animation-delay: 3s;
 }
 
+/* Optimized floating animation - slower = less CPU */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
 .doodle-steam {
   animation: steam 4s ease-in-out infinite;
 }
