@@ -1,0 +1,1 @@
+import{defineConfig as t,renderStudio as e}from"sanity";import{structureTool as o}from"sanity/structure";import{visionTool as r}from"@sanity/vision";const i=[],n=t({name:"default",title:"Brew & Bean",projectId:"nfr65h0c",dataset:"production",plugins:[o(),r()],schema:{types:i}});e(document.getElementById("sanity"),n,{reactStrictMode:!1,basePath:"/"});

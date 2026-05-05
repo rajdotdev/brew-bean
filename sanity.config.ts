@@ -37,7 +37,7 @@ export default defineConfig({
           { name: 'category', title: 'Category', type: 'reference', to: [{ type: 'category' }] },
           { name: 'has3DModel', title: 'Has 3D Model', type: 'boolean', initialValue: false, description: 'Enable this to show AR preview' },
           { name: 'modelFileAndroid', title: '3D Model (Android - .glb)', type: 'file', hidden: ({ parent }: any) => !parent?.has3DModel, options: { accept: '.glb' }, description: 'Upload .glb file for Android AR (Scene Viewer)' },
-          { name: 'modelFileIOS', title: '3D Model (iOS - .usdz)', type: 'file', hidden: ({ parent }: any) => !parent?.has3DModel, options: { accept: '.usdz' }, description: 'Upload .usdz file (keep under 2MB for best results - use modelconvert.com to compress)' },
+          { name: 'modelFileIOS', title: '3D Model (iOS - .glb also works!)', type: 'file', hidden: ({ parent }: any) => !parent?.has3DModel, options: { accept: '.glb,.usdz' }, description: 'GLB works for iOS too! Use same file as Android for best results. Keep under 2MB.' },
           { name: 'image', title: 'Image', type: 'image', options: { hotspot: true } },
           { name: 'isAvailable', title: 'Available', type: 'boolean', initialValue: true },
           { name: 'featured', title: 'Featured', type: 'boolean', initialValue: false }

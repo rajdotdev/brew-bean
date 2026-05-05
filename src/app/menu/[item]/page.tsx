@@ -211,10 +211,10 @@ export default function ItemDetailPage({ params }: PageProps) {
   const androidModelUrl = item.modelFileAndroid?.asset?.url;
   const iosModelUrl = item.modelFileIOS?.asset?.url;
 
-  // For Android: use .glb file, for iOS: use .usdz file
-  // Fall back to android model if iOS not available (model-viewer supports both)
-  const modelSrc = isIOS && iosModelUrl ? iosModelUrl : androidModelUrl;
-  const arSrc = isIOS ? iosModelUrl : androidModelUrl;
+  // Use .glb for everything - model-viewer supports Quick Look on iOS with .glb
+  // This avoids the large .usdz file issue
+  const modelSrc = androidModelUrl || iosModelUrl;
+  const arSrc = isIOS ? androidModelUrl || iosModelUrl : androidModelUrl;
 
   const hasModel = item.has3DModel && (androidModelUrl || iosModelUrl);
 
