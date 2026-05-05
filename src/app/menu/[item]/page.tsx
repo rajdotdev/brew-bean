@@ -12,6 +12,16 @@ interface MenuItem {
   description: string;
   price: string;
   has3DModel: boolean;
+  modelFileAndroid?: {
+    asset: {
+      url: string;
+    };
+  };
+  modelFileIOS?: {
+    asset: {
+      url: string;
+    };
+  };
   category: { name: string; slug: { current: string } };
 }
 
@@ -112,6 +122,7 @@ export default function ItemDetailPage({ params }: PageProps) {
   }, []);
 
   const isIOS = typeof window !== "undefined" && /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isAndroid = typeof window !== "undefined" && /Android/.test(navigator.userAgent);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -196,24 +207,16 @@ export default function ItemDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  // Map Sanity category to local model paths (simplified for now)
-  const modelPathMap: Record<string, string> = {
-    'Classic Espresso': 'espresso-cup.glb',
-    'Cappuccino': 'cappuccino.glb',
-    'Vanilla Latte': 'latte.glb',
-    'Caramel Macchiato': 'macchiato.glb',
-    'Ethiopian Yirgacheffe': 'pour-over.glb',
-    'Colombian Huila': 'pour-over.glb',
-    'Cold Brew': 'cold-brew.glb',
-    'Iced Oat Latte': 'iced-latte.glb',
-    'Affogato': 'affogato.glb',
-    'Cupcake': 'extra_chocolate_marshmallow_cupcake-small.glb',
-  };
+  // Get model URLs from Sanity - these are the actual uploaded files
+  const androidModelUrl = item.modelFileAndroid?.asset?.url;
+  const iosModelUrl = item.modelFileIOS?.asset?.url;
 
-  const modelFileName = modelPathMap[item.name];
-  const hasModel = item.has3DModel && modelFileName;
-  const modelSrc = hasModel ? `/models/${modelFileName}` : null;
-  const iosSrc = hasModel && modelFileName ? `/models/${modelFileName.replace('.glb', '.usdz').replace('-small', '')}` : null;
+  // For Android: use .glb file, for iOS: use .usdz file
+  // Fall back to android model if iOS not available (model-viewer supports both)
+  const modelSrc = isIOS && iosModelUrl ? iosModelUrl : androidModelUrl;
+  const arSrc = isIOS ? iosModelUrl : androidModelUrl;
+
+  const hasModel = item.has3DModel && (androidModelUrl || iosModelUrl);
 
   const handleARClick = () => {
     const modelViewer = document.querySelector("model-viewer") as any;
@@ -222,9 +225,9 @@ export default function ItemDetailPage({ params }: PageProps) {
     }
   };
 
-  const modelSizeKB = modelSrc ? 885 : 0;
+  // Calculate model size (if available)
+  const modelSizeKB = modelSrc ? 0 : 0; // Can't know size without fetching headers
   const displayProgress = modelLoaded ? 100 : loadProgress;
-  const relatedItems: MenuItem[] = []; // Related items would require additional API call
 
   return (
     <>
@@ -257,7 +260,7 @@ export default function ItemDetailPage({ params }: PageProps) {
             {/* 3D Viewer */}
             <div className="relative" ref={containerRef}>
               <div className="relative aspect-square rounded-3xl overflow-hidden bg-gradient-to-br from-[#faf6f0] to-[#f0ebe3] shadow-2xl border-2 border-[#a67040]/20">
-                {!modelSrc || modelError ? (
+                {!hasModel || modelError ? (
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 bg-gradient-to-br from-[#faf6f0] to-[#f0ebe3]">
                     <div className="relative mb-6">
                       <div className="w-40 h-40 rounded-full bg-[#2d1f1a]/5 flex items-center justify-center">
@@ -267,13 +270,13 @@ export default function ItemDetailPage({ params }: PageProps) {
                     <p className="text-[#2d1f1a] font-medium text-xl mb-2">{item.name}</p>
                     <p className="text-[#a67040] text-lg font-semibold mb-1">{item.price}</p>
                     <p className="text-[#6b5b4f] text-sm">
-                      {modelError ? "3D model unavailable" : "3D model coming soon"}
+                      {modelError ? "3D model unavailable" : (!item.has3DModel ? "3D coming soon" : "Upload a 3D model in Studio")}
                     </p>
                   </div>
                 ) : (
                   <model-viewer
-                    src={modelSrc}
-                    ios-src={iosSrc || undefined}
+                    src={modelSrc || ''}
+                    ios-src={isIOS ? arSrc || undefined : undefined}
                     alt={`${item.name} 3D model`}
                     ar
                     ar-modes="webxr scene-viewer quick-look"
@@ -292,10 +295,9 @@ export default function ItemDetailPage({ params }: PageProps) {
                     render-scale="0.5"
                     loading="lazy"
                   />
-
                 )}
                 {/* Loading Overlay */}
-                {modelSrc && !modelError && !modelLoaded && (
+                {hasModel && !modelError && !modelLoaded && (
                   <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#faf6f0]/95 z-10">
                     <div className="flex flex-col items-center gap-4">
                       <div className="relative w-20 h-20">
@@ -326,14 +328,13 @@ export default function ItemDetailPage({ params }: PageProps) {
                         </span>
                       </div>
                       <p className="text-[#6b5b4f] text-sm">Loading 3D Model...</p>
-                      <p className="text-[#a67040]/60 text-xs">{modelSizeKB} KB</p>
                     </div>
                   </div>
                 )}
               </div>
 
               {/* Status Badge */}
-              {modelSrc && !modelError && (
+              {hasModel && !modelError && (
                 <div className="absolute top-4 right-4 bg-[#2d1f1a] text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -375,17 +376,26 @@ export default function ItemDetailPage({ params }: PageProps) {
 
               {/* AR Button */}
               <div className="space-y-4">
-                {modelSrc && !modelError && (
-                  isIOS && iosSrc ? (
-                    <a
-                      href={iosSrc}
-                      className="block w-full bg-[#2d1f1a] text-white py-4 rounded-2xl text-center font-medium text-lg hover:bg-[#a67040] transition-colors shadow-lg flex items-center justify-center gap-3"
-                    >
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-                      </svg>
-                      View in Your Space (AR)
-                    </a>
+                {hasModel && !modelError && (
+                  isIOS ? (
+                    iosModelUrl ? (
+                      <a
+                        href={iosModelUrl}
+                        className="block w-full bg-[#2d1f1a] text-white py-4 rounded-2xl text-center font-medium text-lg hover:bg-[#a67040] transition-colors shadow-lg flex items-center justify-center gap-3"
+                      >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+                        </svg>
+                        View in Your Space (AR)
+                      </a>
+                    ) : (
+                      <button
+                        disabled
+                        className="w-full bg-gray-400 text-white py-4 rounded-2xl text-center font-medium text-lg cursor-not-allowed"
+                      >
+                        iOS Model Not Available
+                      </button>
+                    )
                   ) : (
                     <button
                       onClick={handleARClick}
@@ -411,10 +421,12 @@ export default function ItemDetailPage({ params }: PageProps) {
                   <p className="text-sm text-[#6b5b4f] leading-relaxed">
                     Tap the button above to open your camera. Point at a flat surface like a table or floor, then tap to place the item. You can walk around to view it from every angle.
                   </p>
+                  <div className="mt-3 flex gap-2 text-xs text-[#a67040]">
+                    <span className="bg-[#a67040]/10 px-2 py-1 rounded">Android: .glb</span>
+                    <span className="bg-[#a67040]/10 px-2 py-1 rounded">iOS: .usdz</span>
+                  </div>
                 </div>
               </div>
-
-              {/* Related Items - can be added later with API fetch */}
             </div>
           </div>
         </div>
