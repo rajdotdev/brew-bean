@@ -12,12 +12,7 @@ interface MenuItem {
   description: string;
   price: string;
   has3DModel: boolean;
-  modelFileAndroid?: {
-    asset: {
-      url: string;
-    };
-  };
-  modelFileIOS?: {
+  modelFile?: {
     asset: {
       url: string;
     };
@@ -207,16 +202,13 @@ export default function ItemDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  // Get model URLs from Sanity - these are the actual uploaded files
-  const androidModelUrl = item.modelFileAndroid?.asset?.url;
-  const iosModelUrl = item.modelFileIOS?.asset?.url;
+  // Get model URL from Sanity - single .glb file works for both iOS and Android!
+  const modelUrl = item.modelFile?.asset?.url;
 
-  // Use .glb for everything - model-viewer supports Quick Look on iOS with .glb
-  // This avoids the large .usdz file issue
-  const modelSrc = androidModelUrl || iosModelUrl;
-  const arSrc = isIOS ? androidModelUrl || iosModelUrl : androidModelUrl;
+  const modelSrc = modelUrl;
+  const arSrc = modelUrl;
 
-  const hasModel = item.has3DModel && (androidModelUrl || iosModelUrl);
+  const hasModel = item.has3DModel && modelUrl;
 
   const handleARClick = () => {
     const modelViewer = document.querySelector("model-viewer") as any;

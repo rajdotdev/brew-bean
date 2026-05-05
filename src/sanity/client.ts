@@ -24,12 +24,7 @@ export interface MenuItem {
   has3DModel: boolean;
   isAvailable: boolean;
   featured: boolean;
-  modelFileAndroid?: {
-    asset: {
-      url: string;
-    };
-  };
-  modelFileIOS?: {
+  modelFile?: {
     asset: {
       url: string;
     };
@@ -68,12 +63,7 @@ export async function getMenuItems(): Promise<MenuItem[]> {
       has3DModel,
       isAvailable,
       featured,
-      "modelFileAndroid": modelFileAndroid{
-        asset->{
-          url
-        }
-      },
-      "modelFileIOS": modelFileIOS{
+      "modelFile": modelFile{
         asset->{
           url
         }
@@ -98,12 +88,7 @@ export async function getMenuItemBySlug(slug: string): Promise<MenuItem | null> 
       has3DModel,
       isAvailable,
       featured,
-      "modelFileAndroid": modelFileAndroid{
-        asset->{
-          url
-        }
-      },
-      "modelFileIOS": modelFileIOS{
+      "modelFile": modelFile{
         asset->{
           url
         }
