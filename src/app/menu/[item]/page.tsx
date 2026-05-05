@@ -3,8 +3,36 @@
 import { use, useEffect, useState, useCallback, useRef } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getItemById, menuItems } from "@/data/menu";
 import Nav from "@/components/Nav";
+
+interface MenuItem {
+  _id: string;
+  name: string;
+  slug: { current: string };
+  description: string;
+  price: string;
+  has3DModel: boolean;
+  category: { name: string; slug: { current: string } };
+}
+
+function useMenuItem(slug: string) {
+  const [item, setItem] = useState<MenuItem | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`/api/menu?slug=${slug}`)
+      .then(res => res.json())
+      .then(data => {
+        setItem(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
+  }, [slug]);
+
+  return { item, loading };
+}
 
 function FloatingDoodle({ type, delay, left, top }: { type: 'bean' | 'cup' | 'steam' | 'sparkle'; delay: number; left: string; top: string }) {
   const doodles = {
@@ -58,8 +86,8 @@ interface PageProps {
 }
 
 export default function ItemDetailPage({ params }: PageProps) {
-  const { item: itemId } = use(params);
-  const item = getItemById(itemId);
+  const { item: slug } = use(params);
+  const { item, loading } = useMenuItem(slug);
   const [modelLoaded, setModelLoaded] = useState(false);
   const [modelError, setModelError] = useState(false);
   const [loadProgress, setLoadProgress] = useState(0);
@@ -112,7 +140,7 @@ export default function ItemDetailPage({ params }: PageProps) {
     return () => {
       document.head.removeChild(style);
     };
-  }, [itemId]);
+  }, [slug]);
 
   // Handle model load/error events
   useEffect(() => {
@@ -153,12 +181,39 @@ export default function ItemDetailPage({ params }: PageProps) {
     };
   }, [isInView]);
 
+  if (loading) {
+    return (
+      <>
+        <Nav />
+        <div className="min-h-screen pt-24 flex items-center justify-center bg-[#f6f1ea]">
+          <div className="text-[#2d1f1a]">Loading...</div>
+        </div>
+      </>
+    );
+  }
+
   if (!item) {
     notFound();
   }
 
-  const modelSrc = item.modelPath ? `/models/${item.modelPath}` : null;
-  const iosSrc = item.modelPath ? `/models/${item.modelPath.replace('.glb', '.usdz').replace('-small', '')}` : null;
+  // Map Sanity category to local model paths (simplified for now)
+  const modelPathMap: Record<string, string> = {
+    'Classic Espresso': 'espresso-cup.glb',
+    'Cappuccino': 'cappuccino.glb',
+    'Vanilla Latte': 'latte.glb',
+    'Caramel Macchiato': 'macchiato.glb',
+    'Ethiopian Yirgacheffe': 'pour-over.glb',
+    'Colombian Huila': 'pour-over.glb',
+    'Cold Brew': 'cold-brew.glb',
+    'Iced Oat Latte': 'iced-latte.glb',
+    'Affogato': 'affogato.glb',
+    'Cupcake': 'extra_chocolate_marshmallow_cupcake-small.glb',
+  };
+
+  const modelFileName = modelPathMap[item.name];
+  const hasModel = item.has3DModel && modelFileName;
+  const modelSrc = hasModel ? `/models/${modelFileName}` : null;
+  const iosSrc = hasModel && modelFileName ? `/models/${modelFileName.replace('.glb', '.usdz').replace('-small', '')}` : null;
 
   const handleARClick = () => {
     const modelViewer = document.querySelector("model-viewer") as any;
@@ -167,12 +222,9 @@ export default function ItemDetailPage({ params }: PageProps) {
     }
   };
 
-  const relatedItems = menuItems
-    .filter((i) => i.category === item.category && i.id !== item.id)
-    .slice(0, 4);
-
-  const modelSizeKB = modelSrc ? Math.round((modelSrc.includes('small') ? 885 : 7291)) : 0;
+  const modelSizeKB = modelSrc ? 885 : 0;
   const displayProgress = modelLoaded ? 100 : loadProgress;
+  const relatedItems: MenuItem[] = []; // Related items would require additional API call
 
   return (
     <>
@@ -295,7 +347,7 @@ export default function ItemDetailPage({ params }: PageProps) {
             <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl border border-[#a67040]/10">
               <div className="mb-2">
                 <span className="text-sm tracking-[0.2em] uppercase text-[#a67040] font-medium bg-[#a67040]/10 px-3 py-1 rounded-full">
-                  {item.categoryLabel}
+                  {item.category?.name || 'Menu'}
                 </span>
               </div>
 
@@ -304,14 +356,14 @@ export default function ItemDetailPage({ params }: PageProps) {
               </h1>
 
               <p className="text-lg text-[#6b5b4f] leading-relaxed mb-6">
-                {item.desc}
+                {item.description}
               </p>
 
               <div className="flex items-center gap-4 mb-8 pb-6 border-b border-[#2d1f1a]/10">
                 <div className="text-4xl md:text-5xl serif text-[#a67040] font-semibold">
                   {item.price}
                 </div>
-                {item.modelPath && (
+                {hasModel && (
                   <span className="inline-flex items-center text-sm bg-[#a67040]/10 text-[#a67040] px-3 py-1.5 rounded-full font-medium">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="mr-1">
                       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -362,26 +414,7 @@ export default function ItemDetailPage({ params }: PageProps) {
                 </div>
               </div>
 
-              {/* Related Items */}
-              {relatedItems.length > 0 && (
-                <div className="mt-8 pt-6 border-t border-[#2d1f1a]/10">
-                  <h3 className="text-sm tracking-[0.2em] uppercase text-[#6b5b4f] mb-4">
-                    More in {item.categoryLabel}
-                  </h3>
-                  <div className="flex flex-wrap gap-3">
-                    {relatedItems.map((otherItem) => (
-                      <Link
-                        key={otherItem.id}
-                        href={`/menu/${otherItem.id}`}
-                        className="flex items-center gap-2 px-4 py-2 bg-[#faf6f0] rounded-full text-sm text-[#2d1f1a] hover:bg-[#a67040] hover:text-white transition-colors border border-[#2d1f1a]/10"
-                      >
-                        <span>{otherItem.name}</span>
-                        <span className="text-xs opacity-60">{otherItem.price}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
+              {/* Related Items - can be added later with API fetch */}
             </div>
           </div>
         </div>

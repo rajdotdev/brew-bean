@@ -2,8 +2,25 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { categories, MenuItem } from "@/data/menu";
 import Nav from "@/components/Nav";
+
+interface MenuItem {
+  _id: string;
+  name: string;
+  slug: { current: string };
+  description: string;
+  price: string;
+  has3DModel: boolean;
+  category: { name: string; slug: { current: string } };
+}
+
+interface Category {
+  _id: string;
+  name: string;
+  slug: { current: string };
+  displayOrder: number;
+  items: MenuItem[];
+}
 
 // Memoized static background pattern - no more Math.random() on render
 const DOT_POSITIONS = [
@@ -96,7 +113,7 @@ function CategoryPill({
 function MenuItemCard({ item }: { item: MenuItem }) {
   return (
     <Link
-      href={`/menu/${item.id}`}
+      href={`/menu/${item.slug.current}`}
       className="group relative block bg-white rounded-2xl p-4 md:p-5 shadow-sm hover:shadow-xl transition-all duration-200 hover:-translate-y-1 cursor-pointer border border-transparent hover:border-[#a67040]/30"
     >
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#a67040]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -106,13 +123,13 @@ function MenuItemCard({ item }: { item: MenuItem }) {
             <h4 className="font-semibold text-lg text-[#2d1f1a] group-hover:text-[#a67040] transition-colors duration-200">
               {item.name}
             </h4>
-            {item.modelPath && (
+            {item.has3DModel && (
               <span className="inline-flex items-center text-xs bg-[#a67040]/10 text-[#a67040] px-2 py-0.5 rounded-full font-medium">
                 3D
               </span>
             )}
           </div>
-          <p className="text-sm text-[#6b5b4f]">{item.desc}</p>
+          <p className="text-sm text-[#6b5b4f]">{item.description}</p>
         </div>
         <div className="flex items-center justify-between sm:justify-end gap-3">
           <span className="serif text-xl md:text-2xl font-semibold text-[#2d1f1a]">{item.price}</span>
@@ -130,29 +147,33 @@ function MenuItemCard({ item }: { item: MenuItem }) {
   );
 }
 
-function MenuCategory({ category }: { category: typeof categories[0] }) {
+function MenuCategory({ category }: { category: Category }) {
   const categoryTotal = useMemo(() =>
     category.items.reduce((sum, item) => sum + parseFloat(item.price.replace('$', '')), 0).toFixed(2),
     [category.items]
   );
 
+  const iconMap: Record<string, string> = {
+    'espresso': '☕',
+    'pour-over': '🫖',
+    'cold-drinks': '🧊',
+    'bakery': '🥐'
+  };
+
   return (
     <div className="mb-10">
       <h3 className="serif text-2xl md:text-3xl text-[#a67040] mb-5 pb-3 border-b-2 border-[#a67040]/30 flex items-center gap-3">
         <span className="text-[#a67040]/60 hidden md:block">
-          {category.id === 'espresso' && '☕'}
-          {category.id === 'pourOver' && '🫖'}
-          {category.id === 'cold' && '🧊'}
-          {category.id === 'bakery' && '🥐'}
+          {iconMap[category.slug.current] || '☕'}
         </span>
-        {category.label}
+        {category.name}
         <span className="ml-auto text-sm font-normal text-[#6b5b4f] bg-white px-3 py-1 rounded-full shadow-sm">
           {category.items.length} items · ${categoryTotal}
         </span>
       </h3>
       <div className="grid gap-3">
         {category.items.map((item) => (
-          <MenuItemCard key={item.id} item={item} />
+          <MenuItemCard key={item._id} item={item} />
         ))}
       </div>
     </div>
@@ -162,25 +183,39 @@ function MenuCategory({ category }: { category: typeof categories[0] }) {
 export default function MenuPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setMounted(true);
+    fetch('/api/menu')
+      .then(res => res.json())
+      .then(data => {
+        setCategories(data.categories || []);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch menu:', err);
+        setLoading(false);
+      });
   }, []);
 
   // Memoize expensive calculations
   const totalItemCount = useMemo(() =>
     categories.reduce((sum, cat) => sum + cat.items.length, 0),
-  []);
+  [categories]
+  );
 
   const totalPrice = useMemo(() =>
     categories.reduce((sum, cat) =>
       sum + cat.items.reduce((catSum, item) => catSum + parseFloat(item.price.replace('$', '')), 0), 0
     ).toFixed(2),
-  []);
+  [categories]
+  );
 
   const filteredCategories = useMemo(() =>
-    activeCategory ? categories.filter(cat => cat.id === activeCategory) : categories,
-    [activeCategory]
+    activeCategory ? categories.filter(cat => cat.slug.current === activeCategory) : categories,
+  [activeCategory, categories]
   );
 
   if (!mounted) {
@@ -238,10 +273,10 @@ export default function MenuPage() {
               />
               {categories.map((cat) => (
                 <CategoryPill
-                  key={cat.id}
-                  label={cat.label}
-                  active={activeCategory === cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
+                  key={cat._id}
+                  label={cat.name}
+                  active={activeCategory === cat.slug.current}
+                  onClick={() => setActiveCategory(cat.slug.current)}
                   count={cat.items.length}
                 />
               ))}
@@ -250,9 +285,15 @@ export default function MenuPage() {
         </section>
 
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
-          {filteredCategories.map((category) => (
-            <MenuCategory key={category.id} category={category} />
-          ))}
+          {loading ? (
+            <div className="text-center py-20">
+              <div className="text-[#2d1f1a]">Loading menu...</div>
+            </div>
+          ) : (
+            filteredCategories.map((category) => (
+              <MenuCategory key={category._id} category={category} />
+            ))
+          )}
         </section>
       </main>
 
